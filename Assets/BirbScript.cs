@@ -12,8 +12,8 @@ public class BirbScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        flap = 4;
-        gravity = 1.5F;
+        flap = 400;
+        gravity = 150;
     }
 
     // Update is called once per frame
@@ -26,9 +26,9 @@ public class BirbScript : MonoBehaviour
 
         fisix.gravityScale = gravity;
 
-        if(transform.position.y < -2)
+        if(transform.position.y < -200)
         {
-            transform.position = new Vector2(transform.position.x, -2);
+            transform.position = new Vector2(transform.position.x, -200);
             fisix.velocity = Vector2.up * flap;
         }
     }
