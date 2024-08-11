@@ -10,8 +10,8 @@ public class PipeMoveScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        moveSpeed = 200;
-        deadZone = -400;
+        moveSpeed = 2;
+        deadZone = -4;
     }
 
     // Update is called once per frame

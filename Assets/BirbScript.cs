@@ -7,29 +7,47 @@ public class BirbScript : MonoBehaviour
 {
     public float flap;
     public float gravity;
+    public Logic log;
+    public bool live;
+
 
     public Rigidbody2D fisix;
     // Start is called before the first frame update
     void Start()
     {
-        flap = 400;
-        gravity = 150;
+        flap = 4;
+        gravity = 1.5F;
+        live = true;
+        log = GameObject.FindGameObjectWithTag("Logic").GetComponent<Logic>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            fisix.velocity = Vector2.up * flap;
-        }
-
+        
         fisix.gravityScale = gravity;
 
-        if(transform.position.y < -200)
+        if(Input.GetKeyDown(KeyCode.Space) && live)
         {
-            transform.position = new Vector2(transform.position.x, -200);
             fisix.velocity = Vector2.up * flap;
         }
+
+        else if(transform.position.y < -2 && live)
+        {
+            die();
+        }
+    }
+
+    private void die()
+    {
+        if(live) {
+            log.gameOver();
+            live = false;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        die();
     }
 }

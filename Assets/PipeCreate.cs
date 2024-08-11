@@ -14,7 +14,7 @@ public class PipeCreate : MonoBehaviour
     {
         timer = 0;
         spawnRate = 1.5F;
-        hightOffset = 150;
+        hightOffset = 1.5F;
         spawnPipe();
     }
 
